@@ -1,312 +1,287 @@
-<div align="center">
+ <div align="center">
 
-🔐 CipherCheck
+# 🔐 CipherCheck
 
-Analisador de segurança de senhas em C e Python
+### Analisador de segurança de senhas com C e Python
 
-Uma aplicação de terminal desenvolvida para analisar a composição de senhas, identificar seus critérios de complexidade e classificá-las em níveis de segurança.
+![C](https://img.shields.io/badge/C-GCC-00599C?style=for-the-badge&logo=c&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-Debian-FCC624?style=for-the-badge&logo=debian&logoColor=black)
+![Version](https://img.shields.io/badge/Version-1.0-8A2BE2?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Funcional-22C55E?style=for-the-badge)
 
-<br>
+**Analise a composição de senhas, identifique seus critérios de complexidade e obtenha uma classificação de segurança diretamente pelo terminal.**
 
-
-
-
-
-
+[Sobre](#-sobre-o-projeto) • [Funcionalidades](#-funcionalidades) • [Instalação](#-instalação-e-execução) • [Arquitetura](#-como-funciona) • [Versões](#-histórico-de-versões)
 
 </div>
 
-📑 Índice
+---
 
-📌 Sobre o projeto
+## 📌 Sobre o projeto
 
-⚙️ Funcionalidades
+O **CipherCheck** é um analisador de senhas executado pelo terminal, desenvolvido utilizando **C e Python**.
 
-🛠️ Tecnologias utilizadas
+O projeto foi criado para praticar lógica de programação, manipulação de caracteres, integração entre linguagens e conceitos iniciais de segurança cibernética.
 
-🏗️ Estrutura do projeto
+A aplicação utiliza uma arquitetura híbrida: o **C** realiza a leitura da senha e a contagem dos caracteres, enquanto o **Python** recebe os dados processados e determina o nível de segurança.
 
-🚀 Instalação e execução
+A comunicação entre as linguagens é realizada por meio do módulo `subprocess`, utilizando a saída padrão (`stdout`) para transmitir somente os dados numéricos da análise.
 
-🔍 Como funciona
+> [!NOTE]
+> Projeto educacional em evolução. A versão 1.0 apresenta a estrutura inicial de análise e integração entre C e Python.
 
-📊 Critérios de classificação
+## 🚀 Funcionalidades
 
-🗺️ Roadmap
+| Recurso | Descrição | Principais recursos técnicos |
+|:--|:--|:--|
+| 🔐 **Verificação de senha** | Recebe uma senha informada pelo usuário | `scanf()` |
+| 🔠 **Letras maiúsculas** | Identifica e contabiliza letras de A até Z | Condições `if` |
+| 🔡 **Letras minúsculas** | Identifica e contabiliza letras de a até z | Condições `if` |
+| 🔢 **Números** | Identifica e contabiliza caracteres numéricos | Comparações ASCII |
+| 🔣 **Caracteres especiais** | Identifica caracteres que não pertencem às demais categorias | Condições `else` |
+| 📊 **Classificação** | Determina o nível de segurança da senha | `if`, `elif`, `else` |
+| 🔄 **Nova verificação** | Permite testar outras senhas sem reiniciar a aplicação | `while` |
+| 🔗 **Integração C + Python** | Transmite os contadores para o analisador Python | `subprocess` |
 
-📌 Sobre o projeto
+### ⚙️ Recursos adicionais
 
-O CipherCheck é um projeto desenvolvido em C e Python com o objetivo de praticar programação, integração entre linguagens e conceitos iniciais de segurança cibernética.
+- Classificação em três níveis: **Baixa**, **Média** e **Alta**.
+- Contagem individual dos cinco critérios analisados.
+- Separação entre processamento e classificação.
+- Comunicação entre processos por meio de `stdout`.
+- Mensagens e menus padronizados no terminal.
+- Não utiliza banco de dados.
+- Não necessita de bibliotecas externas.
 
-A aplicação utiliza uma arquitetura híbrida:
+## 🛠️ Tecnologias utilizadas
 
-C: responsável pela leitura da senha, identificação dos caracteres e geração das estatísticas.
+| Tecnologia | Utilização |
+|:--|:--|
+| **C** | Leitura da senha e processamento dos caracteres |
+| **Python 3** | Classificação e gerenciamento da aplicação |
+| **GCC** | Compilação do código C |
+| **subprocess** | Execução e comunicação entre processos |
+| **sys** | Recebimento dos argumentos enviados ao Python |
+| **Linux / Debian** | Ambiente de desenvolvimento |
+| **Git / GitHub** | Versionamento e documentação |
 
-Python: responsável pelo processamento dos dados recebidos e classificação do nível de segurança.
+## 📂 Estrutura do projeto
 
-A comunicação entre as linguagens acontece por meio do subprocess, utilizando a saída padrão do C para transmitir os dados ao Python.
-
-Um dos princípios do projeto é não enviar a senha original para o analisador Python. Somente os contadores de caracteres são transmitidos.
-
-⚙️ Funcionalidades
-
-Menu principal interativo.
-
-Verificação da composição de senhas.
-
-Contagem de caracteres totais.
-
-Identificação de letras maiúsculas e minúsculas.
-
-Identificação de números.
-
-Identificação de caracteres especiais.
-
-Integração entre C e Python.
-
-Classificação em três níveis de segurança.
-
-Opção para testar novas senhas.
-
-Interface de terminal organizada.
-
-🛠️ Tecnologias utilizadas
-
-Tecnologia
-
-Aplicação
-
-C
-
-Processamento e análise dos caracteres
-
-Python 3
-
-Classificação de segurança
-
-Subprocess
-
-Comunicação entre C e Python
-
-GCC
-
-Compilação do código C
-
-Linux
-
-Ambiente de desenvolvimento
-
-Bibliotecas utilizadas
-
-C
-
-stdio.h
-
-Python
-
-sys
-
-subprocess
-
-O projeto utiliza somente bibliotecas padrão, sem dependências externas.
-
-🏗️ Estrutura do projeto
-
+```text
 CipherCheck/
+├── main.py                 # Entrada principal e menu da aplicação
+├── ciphercheck             # Executável compilado do código C
+├── README.md
 │
 ├── docs/
 │
-├── services/
-│   ├── analise.py
-│   └── main.c
-│
-├── main.py
-├── ciphercheck
-└── README.md
+└── services/
+    ├── main.c              # Leitura e processamento da senha
+    └── analise.py           # Classificação do nível de segurança
+```
 
-Arquivo
+## 🖥️ Prévia do terminal
 
-Responsabilidade
+### Menu principal
 
-main.py
+```text
+================================
+       BEM-VINDO AO CIPHERCHECK
+================================
 
-Menu principal e inicialização do programa C
+1 - Verificar minha senha
+2 - Sair do programa
 
-services/main.c
+================================
 
-Leitura e contagem dos caracteres da senha
+Escolha uma opção:
+```
 
-services/analise.py
+### Verificação de senha
 
-Classificação do nível de segurança
+```text
+================================
+       VERIFICACAO DE SENHA
+================================
 
-ciphercheck
+Digite sua senha: ********
 
-Executável gerado pela compilação do código C
+--------------------------------
+       RESULTADO DA ANALISE
+--------------------------------
 
-docs/
+ Total de caracteres: 13
+ Letras maiusculas:   2
+ Letras minusculas:   4
+ Numeros:             5
+ Caracteres especiais: 2
 
-Diretório destinado à documentação técnica
+================================
+          MENU DE OPCOES
+================================
 
-🚀 Instalação e execução
+ 1 - Testar nova senha
+ 2 - Fazer analise de seguranca
+ 3 - Sair
+```
 
-1. Pré-requisitos
+### Resultado da análise
 
-Certifique-se de possuir Python 3 e GCC instalados.
+```text
+================================
+       ANALISE DE SEGURANCA
+================================
 
-No Debian:
+ Comprimento da senha: 13
+ Letras maiusculas:    2
+ Letras minusculas:    4
+ Numeros:              5
+ Caracteres especiais: 2
 
-su -
-apt update
-apt install python3 gcc
+--------------------------------
+       RESULTADO FINAL
+--------------------------------
 
-2. Clonar o repositório
+       SEGURANCA ALTA
 
-git clone https://github.com/Mutus142/CipherCheck.git
+================================
+```
 
-Entre no diretório:
+*As telas são ilustrativas; os resultados dependem da senha informada.*
 
-cd CipherCheck
+## 📊 Critérios de classificação
 
-3. Compilar o código C
+O CipherCheck utiliza critérios de complexidade definidos no módulo `services/analise.py`.
 
-gcc services/main.c -o ciphercheck
+| Critério | Segurança Média | Segurança Alta |
+|:--|:--:|:--:|
+| Comprimento | ≥ 7 | ≥ 12 |
+| Letras maiúsculas | ≥ 1 | ≥ 2 |
+| Letras minúsculas | ≥ 1 | ≥ 2 |
+| Números | ≥ 1 | ≥ 2 |
+| Caracteres especiais | ≥ 1 | ≥ 2 |
 
-4. Executar o projeto
+A classificação segue uma ordem de prioridade:
 
-python3 main.py
+1. **Segurança Alta:** atende a todos os critérios definidos para o nível alto.
+2. **Segurança Média:** não atende ao nível alto, mas atende a todos os critérios do nível médio.
+3. **Segurança Baixa:** não atende aos critérios necessários para os níveis superiores.
 
-🔍 Como funciona
+> [!IMPORTANT]
+> A classificação representa uma avaliação simplificada de complexidade. O CipherCheck não verifica vazamentos de senhas, padrões previsíveis, entropia ou resistência real contra ataques. Portanto, não deve ser utilizado como ferramenta profissional de auditoria de senhas.
 
-O CipherCheck utiliza uma comunicação entre dois processos para realizar a análise.
+## 🔍 Como funciona
 
-Fluxo de execução
+O projeto utiliza dois processos independentes que trabalham em conjunto.
 
-          ┌──────────────────┐
-          │     main.py      │
-          │   Menu principal│
-          └────────┬─────────┘
-                   │
-                   ▼
-          ┌──────────────────┐
-          │    main.c        │
-          │  Leitura senha   │
-          └────────┬─────────┘
-                   │
-                   ▼
-          ┌──────────────────┐
-          │ Processamento C  │
-          │ Contagem de      │
-          │ caracteres       │
-          └────────┬─────────┘
-                   │
-                   ▼
-          ┌──────────────────┐
-          │  Dados numéricos │
-          │  13,2,4,5,2      │
-          └────────┬─────────┘
-                   │
-                   ▼
-          ┌──────────────────┐
-          │   analise.py     │
-          │ Classificação    │
-          └────────┬─────────┘
-                   │
-                   ▼
-          ┌──────────────────┐
-          │ Resultado final  │
-          │ Segurança Alta   │
-          └──────────────────┘
+### Fluxo de execução
 
-Exemplo de comunicação
+```text
+       ┌─────────────────────┐
+       │       main.py       │
+       │    Menu principal   │
+       └──────────┬──────────┘
+                  │
+                  ▼
+       ┌─────────────────────┐
+       │       main.c        │
+       │    Recebe a senha   │
+       └──────────┬──────────┘
+                  │
+                  ▼
+       ┌─────────────────────┐
+       │  Contagem de        │
+       │  caracteres         │
+       └──────────┬──────────┘
+                  │
+                  ▼
+       ┌─────────────────────┐
+       │  Transmissão dos    │
+       │  contadores (stdout)│
+       └──────────┬──────────┘
+                  │
+                  ▼
+       ┌─────────────────────┐
+       │     analise.py      │
+       │  Recebe os valores  │
+       └──────────┬──────────┘
+                  │
+                  ▼
+       ┌─────────────────────┐
+       │  Classificação de   │
+       │  segurança          │
+       └──────────┬──────────┘
+                  │
+                  ▼
+       ┌─────────────────────┐
+       │  Resultado final    │
+       └─────────────────────┘
+```
 
-O programa C calcula os seguintes dados:
+### Comunicação entre as linguagens
 
-Total: 13
-Maiúsculas: 2
-Minúsculas: 4
-Números: 5
-Especiais: 2
+Após realizar a contagem dos caracteres, o programa C transmite somente os valores numéricos, separados por vírgulas.
 
-Ao selecionar a opção de análise, C transmite:
+Exemplo:
 
+```text
 13,2,4,5,2
+```
 
-O Python recebe os valores por meio de sys.argv, converte os dados para inteiros e executa a classificação.
+O Python recebe os dados por meio de `sys.argv`, utiliza `split()` para separar os valores e `map()` para convertê-los em inteiros.
 
-📊 Critérios de classificação
+Dessa forma, o módulo de análise não precisa receber a senha original para executar a classificação.
 
-O CipherCheck utiliza critérios de complexidade definidos no próprio código.
+## 📥 Instalação e execução
 
-Critério
+### 1. Pré-requisitos
 
-Segurança Baixa
+- Linux.
+- Python 3.
+- GCC.
+- Git.
 
-Segurança Média
+### 2. Clonar o repositório
 
-Segurança Alta
+```bash
+git clone https://github.com/Mutus142/CipherCheck.git
+cd CipherCheck
+```
 
-Comprimento
+### 3. Compilar o código C
 
-Não atende aos critérios superiores
+Na raiz do projeto, execute:
 
-≥ 7
+```bash
+gcc services/main.c -o ciphercheck
+```
 
-≥ 12
+Esse comando gera o executável `ciphercheck`.
 
-Maiúsculas
+### 4. Executar o CipherCheck
 
-—
+```bash
+python3 main.py
+```
 
-≥ 1
+A aplicação iniciará pelo menu principal e permitirá realizar as verificações de senha.
 
-≥ 2
+## 📝 Histórico de versões
 
-Minúsculas
+### ✅ v1.0 — Estrutura inicial
 
-—
+- Desenvolvimento do menu principal em Python.
+- Implementação da leitura e contagem de caracteres em C.
+- Identificação de maiúsculas, minúsculas, números e caracteres especiais.
+- Desenvolvimento do módulo de classificação em Python.
+- Integração entre C e Python utilizando `subprocess`.
+- Transmissão exclusiva dos contadores para o analisador.
+- Classificação em três níveis de segurança.
+- Padronização das mensagens e menus no terminal.
 
-≥ 1
+## ⚠️ Limitações conhecidas
 
-≥ 2
-
-Números
-
-—
-
-≥ 1
-
-≥ 2
-
-Especiais
-
-—
-
-≥ 1
-
-≥ 2
-
-A classificação é feita por prioridade: primeiro é verificada a segurança alta, depois a média e, caso nenhuma das condições seja atendida, a senha é classificada como baixa.
-
-[!IMPORTANT]
-Os critérios representam uma avaliação simplificada de complexidade. O CipherCheck é um projeto educacional e não substitui ferramentas profissionais de auditoria de senhas. A classificação não considera, por enquanto, senhas vazadas, padrões previsíveis ou ataques de força bruta.
-
-🗺️ Roadmap
-
-v1.0 — Estrutura inicial, processamento em C, classificação em Python e integração entre linguagens.
-
-v1.1 — Aprimoramento dos critérios de segurança e validações de entrada.
-
-v1.5 — Implementação de novos recursos de análise e melhorias na arquitetura.
-
-v2.0 — Expansão do projeto com funcionalidades voltadas à segurança cibernética.
-
-<div align="center">
-
-🔐 CipherCheck
-
-Desenvolvido para praticar programação, integração entre linguagens e conceitos de segurança cibernética.
-
-C + Python | Linux
-
-</div>
+- **Análise simplificada:** a classificação considera apenas comprimento e composição dos caracteres.
+- **Padrões previsíveis:** não identifica sequências, repetições ou combinações comuns.
+- **Senhas vazadas:** não consulta

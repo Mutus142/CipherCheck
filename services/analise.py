@@ -1,3 +1,4 @@
+
 import sys
 
 dados = sys.argv[1]
@@ -20,7 +21,7 @@ def avaliacao_senha():
         and caracter_especial >= 2
         and numbers >= 2
     ):
-        avaliacao = "Segurança Alta"
+        avaliacao = "SEGURANCA ALTA"
 
     elif (
         total >= 7
@@ -29,11 +30,34 @@ def avaliacao_senha():
         and caracter_especial >= 1
         and numbers >= 1
     ):
-        avaliacao = "Segurança Média"
+        avaliacao = "SEGURANCA MEDIA"
 
     else:
-        avaliacao = "Segurança Baixa"
+        avaliacao = "SEGURANCA BAIXA"
 
-    print("Resultado de segurança:", avaliacao)
+    print("""
+================================
+       ANALISE DE SEGURANCA
+================================
+""")
+
+    print(f" Comprimento da senha: {total}")
+    print(f" Letras maiusculas:    {total_mai}")
+    print(f" Letras minusculas:    {total_min}")
+    print(f" Numeros:              {numbers}")
+    print(f" Caracteres especiais: {caracter_especial}")
+
+    print("""
+--------------------------------
+       RESULTADO FINAL
+--------------------------------
+""")
+
+    print(f"       {avaliacao}")
+
+    print("""
+================================
+""")
+
 
 avaliacao_senha()

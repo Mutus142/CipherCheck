@@ -40,7 +40,7 @@ def menu():
             escolha = int(input("Escolha uma opção: ").strip())
 
         except ValueError:
-            print("\nInválido! Tente novamente.")
+            print("\n> Inválido! Tente novamente.")
             continue
 
         if escolha == 1:
@@ -48,11 +48,11 @@ def menu():
             iniciar_verificacao()
 
         elif escolha == 2:
-            print("\nEncerrando CipherCheck...")
+            print("\n> Encerrando CipherCheck...")
             break
 
         else:
-            print("\nOpção inválida!")
+            print("\n> Opção inválida!")
 
 
 if __name__ == "__main__":

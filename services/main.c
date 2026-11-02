@@ -12,7 +12,12 @@ int main(void) {
 
         char senha[100];
 
-        fprintf(stderr, "Digite a sua senha:\n");
+        fprintf(stderr, "\n");
+        fprintf(stderr, "================================\n");
+        fprintf(stderr, "       VERIFICACAO DE SENHA\n");
+        fprintf(stderr, "================================\n\n");
+
+        fprintf(stderr, "Digite sua senha: ");
         scanf("%99s", senha);
 
         for (int i = 0; senha[i] != '\0'; i++) {
@@ -33,21 +38,31 @@ int main(void) {
             }
         }
 
-        fprintf(stderr, "Total de caracteres: %d\n", total);
-        fprintf(stderr, "Total de maiusculas: %d\n", total_mai);
-        fprintf(stderr, "Total de minusculas: %d\n", total_min);
-        fprintf(stderr, "Total de numeros: %d\n", numbers);
-        fprintf(stderr, "Total de caracteres especiais: %d\n", caracter_especial);
+        fprintf(stderr, "\n");
+        fprintf(stderr, "--------------------------------\n");
+        fprintf(stderr, "       RESULTADO DA ANALISE\n");
+        fprintf(stderr, "--------------------------------\n\n");
+
+        fprintf(stderr, " Total de caracteres: %d\n", total);
+        fprintf(stderr, " Letras maiusculas:   %d\n", total_mai);
+        fprintf(stderr, " Letras minusculas:   %d\n", total_min);
+        fprintf(stderr, " Numeros:             %d\n", numbers);
+        fprintf(stderr, " Caracteres especiais:%d\n", caracter_especial);
 
         int opcao;
 
-        fprintf(stderr, "\nO que voce quer fazer agora?\n");
-        fprintf(stderr, "1 - Testar nova senha\n");
-        fprintf(stderr, "2 - Fazer analise de seguranca na senha\n");
-        fprintf(stderr, "3 - Sair\n");
+        fprintf(stderr, "\n================================\n");
+        fprintf(stderr, "          MENU DE OPCOES\n");
+        fprintf(stderr, "================================\n\n");
+
+        fprintf(stderr, " 1 - Testar nova senha\n");
+        fprintf(stderr, " 2 - Fazer analise de seguranca\n");
+        fprintf(stderr, " 3 - Sair\n");
+
+        fprintf(stderr, "\nEscolha uma opcao: ");
 
         if (scanf("%d", &opcao) != 1) {
-            fprintf(stderr, "Entrada invalida!\n");
+            fprintf(stderr, "\nEntrada invalida!\n");
             return 1;
         }
 
@@ -67,11 +82,11 @@ int main(void) {
             return 2;
         }
         else if (opcao == 3) {
-            fprintf(stderr, "Saindo...\n");
+            fprintf(stderr, "\nEncerrando verificacao...\n");
             return 0;
         }
         else {
-            fprintf(stderr, "Opcao invalida!\n");
+            fprintf(stderr, "\nOpcao invalida!\n");
             return 1;
         }
     }

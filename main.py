@@ -1,34 +1,44 @@
-# MENU INICIAL CIPHER CHECK 1.0
 
 import time
+import subprocess
+
+def iniciar_verificacao():
+    subprocess.run("./ciphercheck")
 
 def menu():
 
     while True:
 
-        print('''
-        Bem vindo ao CipherCheck!
+        print("""
+================================
+       BEM-VINDO AO CIPHERCHECK
+================================
 
-        1 - Verificar minha senha
-        2 - Sair do programa
+1 - Verificar minha senha
+2 - Sair do programa
 
-        ''')
+================================
+""")
 
         try:
-            escolha = int(input("Escolha uma opção: "))
+            escolha = int(input("Escolha uma opção: ").strip())
 
         except ValueError:
-            print("Invalido! tente novamente.")
+            print("\nInválido! Tente novamente.")
             continue
 
         if escolha == 1:
-            print("Iniciando...")
-            time.sleep(2)            
-            # função para tocar o arquivo em C
-        
+            time.sleep(2)
+            print("\nIniciando...")
+            iniciar_verificacao()
+
         elif escolha == 2:
-            print("Saindo...")
+            print("\nEncerrando CipherCheck...")
             break
 
         else:
-            print("Opção invalida!")
+            print("\nOpção inválida!")
+
+
+if __name__ == "__main__":
+    menu()

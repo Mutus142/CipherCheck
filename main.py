@@ -3,7 +3,23 @@ import time
 import subprocess
 
 def iniciar_verificacao():
-    subprocess.run("./ciphercheck")
+
+    resultado = subprocess.run(
+        ["./ciphercheck"],
+        stdout=subprocess.PIPE,
+        text=True
+    )
+
+    print("Código de encerramento:", resultado.returncode)
+
+    if resultado.returncode == 2:
+        dados = resultado.stdout.strip()
+
+        subprocess.run([
+            "python3",
+            "services/analise.py",
+            dados
+        ])
 
 def menu():
 
@@ -28,7 +44,6 @@ def menu():
             continue
 
         if escolha == 1:
-            time.sleep(2)
             print("\nIniciando...")
             iniciar_verificacao()
 

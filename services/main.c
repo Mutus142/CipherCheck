@@ -13,23 +13,32 @@ int main(void) {
     printf("Digite a sua senha: \n");
     scanf("%99s", senha);
 
-    for (int i = 0; senha[i] != 0; i++) {
+    for (int i = 0; senha[i] != '\0'; i++) {
+
+        total++;
 
         if (senha[i] >= 'A' && senha[i] <= 'Z') {
             total_mai++;
-            total_mai +1;
         }
 
         else if (senha[i] >= 'a' && senha[i] <= 'z') {
             total_min++;
-            total_min +1;
         }
 
         else if (senha[i] >= '0' && senha[i] <= '9') {
             numbers++;
-            numbers +1
+        }
+
+        else {
+            caracter_especial++;
         }
     }
+
+    printf("Total de caracter: %d\n", total);
+    printf("Total Maisculas: %d\n", total_mai);
+    printf("Total Minusculas: %d\n", total_min);
+    printf("Total de numeros: %d\n", numbers);
+    printf("Total de caracter especial: %d\n", caracter_especial);
 
     return 0;
 }
